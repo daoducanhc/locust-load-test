@@ -1,0 +1,19 @@
+IP=http://137.132.92.226
+IPM_ENV=load
+IPM_PORT=4088
+
+# Set docker names
+IPM_NET=ipm-${IPM_ENV}-net
+IPM_MYSQL=ipm-${IPM_ENV}-mysql
+IPM_ES=ipm-${IPM_ENV}-es
+IPM_MONGO=ipm-${IPM_ENV}-mongo
+IPM_BACKEND=ipm-${IPM_ENV}
+
+# Set base directory for all mapped data
+IPM_DATADIR_PREFIX=${IPM_DATADIR_PREFIX:-$(realpath "${HOME}")/ipm_internal_data}
+
+BACKEND_DIR=${IPM_DATADIR_PREFIX}/backend_${IPM_ENV}
+ES_DIR=${IPM_DATADIR_PREFIX}/es_${IPM_ENV}
+MONGO_DIR=${IPM_DATADIR_PREFIX}/mongo_${IPM_ENV}
+MYSQL_DIR=${IPM_DATADIR_PREFIX}/mysql_${IPM_ENV}
+# export IPM_ENV, IPM_PORT, IPM_NET, IPM_MYSQL, IPM_ES, IPM_MONGO, IPM_BACKEND, IPM_DATADIR_PREFIX
