@@ -2,16 +2,20 @@
 
 
 # Purpose
-- **Measure System Performance:** See ****how well the system handles concurrent users or processes.
+- **Measure System Performance:** See how well the system handles concurrent users or processes.
 - **Estimating resources:** Determining the hardware needed for deployment. 
 - **Prevent Downtime:** Ensure the system remains stable and responsive under load to avoid crashes or downtime in a production environment.
 
 
 # Metrics
 [ ] **Response Time:** The time the system takes to respond to a request.
+
 [ ] **Concurrent Users:** The number of users actively interacting with the system simultaneously.
+
 [ ] **Latency:** The time it takes for a request to reach the server and for the server to start processing it.
+
 [ ] **CPU Utilization:** The percentage of CPU resources used by the system during the load test.
+
 [ ] **Memory Usage:**  The amount of memory consumed by the system during the load test.
 
 
@@ -31,9 +35,13 @@ However, when our frontend triggers multiple API calls (after login) in parallel
 
 # Testing tools
 [ ] **Locust:** allows you to define user behaviors, such as logging in and performing actions that trigger multiple API calls, which can be run under load to simulate real user activity.
+
 [ ] ~~**Vegeta**~~ ~~(for Individual APIs): You can use Vegeta to load test individual APIs, but for testing sequences or parallel calls, it may not be sufficient on its own.~~
+
 [ ] ~~**Selenium, Playwright,**~~ `~~**chromedp**~~`~~: For simulating user interactions in web browsers.~~
+
 [ ] ~~**Profiling Go:**~~ ~~understand the performance characteristics of your Go applications by measuring various aspects like CPU usage, memory allocation, goroutine usage, and more.~~ 
+
 [ ] ~~**Prometheus + Grafana**~~~~: Scrape data and visualization, but it seems to overkill this task since this stack is usually recommended for long-term server monitoring and data aggregation across large-scale systems.~~
 
 
@@ -44,14 +52,20 @@ For deployments across *n* nodes, resource requirements can be estimated by divi
 
 
 - CPU Usage
-    [ ] 8 cores
-    [ ] 16 cores
+
+  [ ] 8 cores
+
+  [ ] 16 cores
 - Memory Usage
-    [ ] 4 GB
-    [ ] 8 GB
+
+  [ ] 4 GB
+
+  [ ] 8 GB
 - Concurrent users (login process)
-    [ ] 1000
-    [ ] ~~2000~~
+
+  [ ] 1000
+
+  [ ] ~~2000~~
 
 
 - According to Google, the average response time should be under 200 milliseconds as it gives the feeling of an instant response. 
@@ -68,26 +82,28 @@ For deployments across *n* nodes, resource requirements can be estimated by divi
 
 
 ## Step
-[ ] Setup load test service
-    [ ] Create test-database with 10k managers profile
-    [ ] Setup 4 services for load-testing purpose
-
-
-[ ] Pre-login users and save tokens to txt file
-
-
-[ ] Write Locust script
-    [ ] Read tokens from file
-    [ ] Simulate 12 APIs called when an user login
+- Setup load test service
+   
+    - Create test-database with 10k managers profile
     
-[ ] Tried to control resources for groups of containers (4 services)
-    [ ] Found a way of using cgroup package
-    [ ] However, SBIP recommend not to use it, since it can affects to the OS
-    [ ] Alternative approach: Setup a cloud instance → time-consuming
-[ ] Therefore
-    [ ] Run the experiment with required load request
-    [ ]  Monitor containers when it reach the peak
-    [ ] Estimate resources have to use 
+    - Setup 4 services for load-testing purpose
+
+
+- Pre-login users and save tokens to txt file
+
+
+- Write Locust script
+    - Read tokens from file
+    - Simulate 12 APIs called when an user login
+    
+- Tried to control resources for groups of containers (4 services)
+    - Found a way of using cgroup package
+    - However, SBIP recommend not to use it, since it can affects to the OS
+    - Alternative approach: Setup a cloud instance → time-consuming
+- Therefore
+    - Run the experiment with required load request
+    -  Monitor containers when it reach the peak
+    - Estimate resources have to use 
 
 
 # Experiments
