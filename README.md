@@ -1,5 +1,6 @@
 # Load Test plan
 
+[Full report](https://www.dropbox.com/scl/fi/0qv1nt3ec6xt0a0of5c9o/Load-Test-plan.paper?rlkey=rk6okq551qfms1xumucntnvhq&dl=0)
 
 # Purpose
 - **Measure System Performance:** See how well the system handles concurrent users or processes.
